@@ -1,0 +1,61 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "mz/cms-course-module",
+	"version": "0.1.0",
+	"title": "CMS Course Module",
+	"category": "design",
+	"icon": "smiley",
+	"description": "Create a module for your course",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "cms-course-module",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"keywords": ["cms","course","module","hera","mz"],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": ".subject-title"
+		},
+		"info": {
+			"type": "string",
+			"source": "html",
+			"selector": ".info"
+		},
+		"length": {
+			"type": "string",
+			"selector": ".length",
+			"default": 1
+		},
+		"imgUrl": {
+			"type": "string",
+			"default": "https://placehold.it/75"
+		},
+		"answerone": {
+			"type": "string",
+			"source": "html",
+			"selector": ".answerone"
+		},
+		"answertwo": {
+			"type": "string",
+			"source": "html",
+			"selector": ".answertwo"
+		},
+		"answerthree": {
+			"type": "string",
+			"source": "html",
+			"selector": ".answerthree"
+		},
+		"correctanswer": {
+			"type": "string",
+			"source": "html",
+			"selector": ".correctanswer"
+		}
+	}
+}

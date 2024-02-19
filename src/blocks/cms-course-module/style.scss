@@ -1,0 +1,61 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+@import "../../scss/variables";
+.wp-block-mz-cms-course-module {
+
+	padding: 2px;
+}
+
+.wp-block-mz-cms-course-module .module-section-header{
+	background-color: darkblue;
+	color: #dedede;
+}
+
+.wp-block-mz-cms-course-module .module-section-incorrect-answer {
+	background: darkred;
+	color: #dedede;
+}
+
+.wp-block-mz-cms-course-module .module-section-correct-answer {
+	background: darkgreen;
+	color: #dedede;
+}
+
+.subject-title, .info, .quiz-question, .answerone, .answertwo, .answerthree, .correctanswer {
+	background: #dedede;
+	color: darkblue;
+	margin-bottom: 20px;
+}
+
+.module-question {
+	background: darkblue;
+	color: #dedede;
+}
+
+.module-container {
+	padding: 20px;
+	border: 5px solid #565656;
+	border-radius: 20px;
+}
+
+.module-image {
+	margin: auto;
+}
+
+.correct-answer, .incorrect-answer {
+	padding: 20px;
+}
+
+input:checked + .correct-answer {
+	background: lightgreen;
+
+}
+
+.answers input[type="radio"]:checked + .incorrect-answer {
+	background-color: lightcoral;
+
+}
