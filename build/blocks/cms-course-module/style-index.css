@@ -10,6 +10,18 @@
 .wp-block-mz-cms-course-module {
   padding: 2px;
 }
+.wp-block-mz-cms-course-module.bg-primary-blue {
+  background-color: #0606c2;
+}
+.wp-block-mz-cms-course-module.bg-primary-red {
+  background-color: #d20909;
+}
+.wp-block-mz-cms-course-module.input-border-primary-blue {
+  border: 5px solid #0606c2;
+}
+.wp-block-mz-cms-course-module.input-border-primary-red {
+  border: 5px solid #d20909;
+}
 
 .wp-block-mz-cms-course-module .module-section-header {
   background-color: darkblue;
@@ -32,8 +44,12 @@
   margin-bottom: 20px;
 }
 
-.module-question {
+.module-question, .module-length {
   background: darkblue;
+  color: #dedede;
+}
+
+.module-title {
   color: #dedede;
 }
 

@@ -2,6 +2,80 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./BlockSettings.js":
+/*!**************************!*\
+  !*** ./BlockSettings.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BlockSettings: () => (/* binding */ BlockSettings)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+class BlockSettings extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
+  render() {
+    const {
+      attributes,
+      setAttributes
+    } = this.props;
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+      title: "Basic",
+      initialOpen: true
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, "Set Padding for each section"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+      label: "Padding for each section",
+      value: attributes.sectionMargin,
+      onChange: sectionMargin => setAttributes({
+        sectionMargin
+      }),
+      options: [{
+        value: '',
+        label: 'Default'
+      }, {
+        value: '10px',
+        label: '10px'
+      }, {
+        value: '50px',
+        label: '50px'
+      }]
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, "Hide the Content if you want users to take the quiz question from memory"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+      label: "Hide Content",
+      value: attributes.hideContent,
+      onChange: hideContent => setAttributes({
+        hideContent
+      }),
+      options: [{
+        value: 'block',
+        label: 'visible'
+      }, {
+        value: 'none',
+        label: 'hide'
+      }]
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, "Set Header Gradient First Color"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPicker, {
+      color: attributes.headerBackgroundColor,
+      onChange: headerBackgroundColor => setAttributes({
+        headerBackgroundColor
+      })
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, "Set Header Gradient Second Color"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPicker, {
+      color: attributes.secondHeaderBackgroundColor,
+      onChange: secondHeaderBackgroundColor => setAttributes({
+        secondHeaderBackgroundColor
+      })
+    }))));
+  }
+}
+
+/***/ }),
+
 /***/ "./src/blocks/cms-course-module/edit.js":
 /*!**********************************************!*\
   !*** ./src/blocks/cms-course-module/edit.js ***!
@@ -21,6 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/cms-course-module/editor.scss");
 /* harmony import */ var _components_QuizQuestion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/QuizQuestion */ "./src/components/QuizQuestion.js");
 /* harmony import */ var _components_QuizAnswers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/QuizAnswers */ "./src/components/QuizAnswers.js");
+/* harmony import */ var _BlockSettings__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../BlockSettings */ "./BlockSettings.js");
 
 /**
  * Retrieves the translation of text.
@@ -48,6 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -60,11 +136,20 @@ function Edit({
   attributes,
   setAttributes
 }) {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_BlockSettings__WEBPACK_IMPORTED_MODULE_6__.BlockSettings, {
+    attributes: attributes,
+    setAttributes: setAttributes
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+    style: {
+      backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`
+    },
     className: "module-section-header"
   }, "Add a Title Here"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    style: {
+      marginBottom: attributes.sectionMargin
+    },
     className: "subject-title",
     tagName: "div",
     placeholder: "title for module",
@@ -73,8 +158,17 @@ function Edit({
       title
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+    style: {
+      marginBottom: attributes.sectionMargin,
+      display: attributes.hideContent,
+      backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`
+    },
     className: "module-section-header"
   }, "Add Your Content Here"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    style: {
+      marginBottom: attributes.sectionMargin,
+      display: attributes.hideContent
+    },
     className: "info",
     tagName: "div",
     placeholder: "Information you want the user to read",
@@ -83,10 +177,16 @@ function Edit({
       info
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+    style: {
+      backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`
+    },
     className: "module-section-header"
   }, "Place an Image for Users to Reference Here"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "photo"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+    style: {
+      marginBottom: attributes.sectionMargin
+    },
     allowedTypes: ['image'],
     onSelect: file => setAttributes({
       imgUrl: file.sizes.medium.url
@@ -99,8 +199,14 @@ function Edit({
       onClick: open
     })
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+    style: {
+      backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`
+    },
     className: "module-section-header"
   }, "Estimated Time to Complete Module"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PlainText, {
+    style: {
+      marginBottom: attributes.sectionMargin
+    },
     className: "length",
     placeholder: "1 Hour",
     value: attributes.length,
@@ -108,6 +214,9 @@ function Edit({
       length
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+    style: {
+      backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`
+    },
     className: "module-section-header"
   }, "Quiz Question for Users"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_QuizQuestion__WEBPACK_IMPORTED_MODULE_4__["default"], {
     question: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
@@ -257,24 +366,47 @@ function save({
   const answerArray = [attributes.answerone, attributes.answertwo, attributes.answerthree, attributes.correctanswer];
   const shuffledArray = answerArray.sort(() => Math.random() - 0.5);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
+      className: attributes.backgroundColorClass
+    })
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "module-container"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    style: {
+      marginBottom: attributes.sectionMargin,
+      backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`
+    },
+    className: "title"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     className: "module-title",
     tagName: "div",
     value: attributes.title
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    style: {
+      marginBottom: attributes.sectionMargin,
+      display: attributes.hideContent
+    },
     className: "subject-info",
     tagName: "div",
     value: attributes.info
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    style: {
+      marginBottom: attributes.sectionMargin
+    },
     className: "module-image",
     src: attributes.imgUrl,
     alt: "Photo"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+    style: {
+      marginBottom: attributes.sectionMargin,
+      backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`
+    },
     className: "module-length"
   }, "Estimated Module Completion Time: ", attributes.length), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+    style: {
+      marginBottom: attributes.sectionMargin,
+      backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`
+    },
     className: "module-question"
   }, attributes.question), shuffledArray.map(answer => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -410,6 +542,16 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
 /***/ "@wordpress/i18n":
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
@@ -426,7 +568,7 @@ module.exports = window["wp"]["i18n"];
   \*************************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mz/cms-course-module","version":"0.1.0","title":"CMS Course Module","category":"design","icon":"smiley","description":"Create a module for your course","example":{},"supports":{"html":false},"textdomain":"cms-course-module","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["cms","course","module","hera","mz"],"attributes":{"title":{"type":"string","source":"html","selector":".subject-title"},"info":{"type":"string","source":"html","selector":".info"},"length":{"type":"string","selector":".length","default":1},"imgUrl":{"type":"string","default":"https://placehold.it/75"},"answerone":{"type":"string","source":"html","selector":".answerone"},"answertwo":{"type":"string","source":"html","selector":".answertwo"},"answerthree":{"type":"string","source":"html","selector":".answerthree"},"correctanswer":{"type":"string","source":"html","selector":".correctanswer"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mz/cms-course-module","version":"0.1.0","title":"CMS Course Module","category":"design","icon":"smiley","description":"Create a module for your course","example":{},"supports":{"html":false},"textdomain":"cms-course-module","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["cms","course","module","hera","mz"],"attributes":{"title":{"type":"string","source":"html","selector":".subject-title"},"info":{"type":"string","source":"html","selector":".info"},"length":{"type":"string","selector":".length","default":1},"imgUrl":{"type":"string","default":"https://placehold.it/75"},"answerone":{"type":"string","source":"html","selector":".answerone"},"answertwo":{"type":"string","source":"html","selector":".answertwo"},"answerthree":{"type":"string","source":"html","selector":".answerthree"},"correctanswer":{"type":"string","source":"html","selector":".correctanswer"},"backgroundColorClass":{"type":"string"},"borderColor":{"type":"string"},"textColor":{"type":"string"},"sectionMargin":{"type":"string"},"headerBackgroundColor":{"type":"string"},"secondHeaderBackgroundColor":{"type":"string"}}}');
 
 /***/ })
 

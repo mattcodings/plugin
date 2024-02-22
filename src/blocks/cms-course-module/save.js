@@ -20,13 +20,14 @@ export default function save({attributes}) {
 	const answerArray = [attributes.answerone, attributes.answertwo, attributes.answerthree, attributes.correctanswer];
 	const shuffledArray = answerArray.sort(()=>Math.random() - 0.5)
 	return (
-		<p { ...useBlockProps.save() }>
+		<p { ...useBlockProps.save({className: attributes.backgroundColorClass}) }>
 			<div className="module-container">
-			<h2><RichText.Content className="module-title" tagName="div" value={attributes.title}/></h2>
-			<RichText.Content className="subject-info" tagName="div" value={attributes.info}/>
-			<img className="module-image" src={attributes.imgUrl} alt="Photo"/>
-			<h4 className="module-length">Estimated Module Completion Time: {attributes.length}</h4>
-			<h4 className="module-question">{attributes.question}</h4>
+			<h2 style={{marginBottom: attributes.sectionMargin, backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`}} className='title'>
+				<RichText.Content className="module-title" tagName="div" value={attributes.title}/></h2>
+			<RichText.Content style={{marginBottom: attributes.sectionMargin, display: attributes.hideContent}} className="subject-info" tagName="div" value={attributes.info}/>
+			<img style={{marginBottom: attributes.sectionMargin}} className="module-image" src={attributes.imgUrl} alt="Photo"/>
+			<h4 style={{marginBottom: attributes.sectionMargin, backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`}} className="module-length">Estimated Module Completion Time: {attributes.length}</h4>
+			<h4 style={{marginBottom: attributes.sectionMargin, backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`}} className="module-question">{attributes.question}</h4>
 			{shuffledArray.map(answer=>{
 				return <div className="answers"><input type="radio" className="possible-answer" name={randomNumber} id={answer}/><label className={answer === attributes.correctanswer ? "correct-answer":"incorrect-answer"} htmlFor={answer}>{answer}</label></div>
 			})}

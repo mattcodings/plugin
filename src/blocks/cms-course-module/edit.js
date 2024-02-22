@@ -23,6 +23,7 @@ import './editor.scss';
 import QuizQuestion from "../../components/QuizQuestion";
 import QuizAnswers from "../../components/QuizAnswers"
 import React from "react";
+import {BlockSettings} from "../../../BlockSettings";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -33,27 +34,34 @@ import React from "react";
  * @return {Element} Element to render.
  */
 export default function Edit({attributes, setAttributes}) {
+
 	return (
-		<p { ...useBlockProps() }>
-			<h4 className="module-section-header">Add a Title Here</h4>
+		<div { ...useBlockProps() }>
+			<BlockSettings attributes={attributes} setAttributes={setAttributes}/>
+			<h4 style={{backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`}} className="module-section-header">Add a Title Here</h4>
+
 			<RichText
+				style={{marginBottom: attributes.sectionMargin}}
 				className="subject-title"
 				tagName="div"
 				placeholder="title for module"
 				value={attributes.title}
 				onChange={(title)=>setAttributes({title})}/>
-			<h4 className="module-section-header">Add Your Content Here</h4>
+			<h4 style={{marginBottom: attributes.sectionMargin, display: attributes.hideContent, backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`}}
+				className="module-section-header">Add Your Content Here</h4>
 			<RichText
+				style={{marginBottom: attributes.sectionMargin, display: attributes.hideContent}}
 			className="info"
 			tagName="div"
 			placeholder="Information you want the user to read"
 			value={attributes.info}
 			onChange={(info)=>setAttributes({info})}/>
 
-			<h4 className="module-section-header">Place an Image for Users to Reference Here</h4>
+			<h4 style={{backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`}} className="module-section-header">Place an Image for Users to Reference Here</h4>
 			<div className="photo">
 				<MediaUploadCheck>
 					<MediaUpload
+						style={{marginBottom: attributes.sectionMargin}}
 						allowedTypes={['image']}
 onSelect={file=>setAttributes({imgUrl: file.sizes.medium.url})}
 						render={({open})=> <img src={attributes.imgUrl} alt="Upload a photo" onClick={open}/>}
@@ -61,13 +69,15 @@ onSelect={file=>setAttributes({imgUrl: file.sizes.medium.url})}
 				</MediaUploadCheck>
 
 			</div>
-			<h4 className="module-section-header">Estimated Time to Complete Module</h4>
-			<PlainText className="length"
+			<h4 style={{backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`}} className="module-section-header">Estimated Time to Complete Module</h4>
+			<PlainText
+				style={{marginBottom: attributes.sectionMargin}}
+				className="length"
 					   placeholder="1 Hour"
 					   value={attributes.length}
 					   onChange={length => setAttributes({length})}
 			/>
-			<h4 className="module-section-header">Quiz Question for Users</h4>
+			<h4 style={{backgroundImage: `linear-gradient(${attributes.headerBackgroundColor}, ${attributes.secondHeaderBackgroundColor})`}} className="module-section-header">Quiz Question for Users</h4>
 			<QuizQuestion question={<RichText
 				className="quiz-question"
 				tagName="div"
@@ -111,6 +121,6 @@ onSelect={file=>setAttributes({imgUrl: file.sizes.medium.url})}
 			onChange={(correctanswer)=>setAttributes({correctanswer})}/>
 
 			<QuizAnswers/>
-		</p>
+		</div>
 	);
 }

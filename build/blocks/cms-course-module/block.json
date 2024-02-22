@@ -62,6 +62,24 @@
       "type": "string",
       "source": "html",
       "selector": ".correctanswer"
+    },
+    "backgroundColorClass": {
+      "type": "string"
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "sectionMargin": {
+      "type": "string"
+    },
+    "headerBackgroundColor": {
+      "type": "string"
+    },
+    "secondHeaderBackgroundColor": {
+      "type": "string"
     }
   }
 }
