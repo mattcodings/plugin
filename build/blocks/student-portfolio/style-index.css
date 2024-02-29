@@ -1,0 +1,84 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/student-portfolio/style.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-mz-student-portfolio {
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.wp-block-mz-student-portfolio .flip-card {
+  display: block;
+  background-color: transparent;
+  width: 250px;
+  height: 250px;
+  perspective: 1000px;
+}
+.wp-block-mz-student-portfolio .flip-card .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.wp-block-mz-student-portfolio .flip-card .flip-card-inner .flip-card-front, .wp-block-mz-student-portfolio .flip-card .flip-card-inner .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%; /* Safari */
+  backface-visibility: hidden;
+}
+.wp-block-mz-student-portfolio .flip-card .flip-card-inner .flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+.wp-block-mz-student-portfolio .flip-card .flip-card-inner .flip-card-front img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.wp-block-mz-student-portfolio .flip-card .flip-card-inner .flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+.wp-block-mz-student-portfolio .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.wp-block-mz-student-portfolio .flip-card .name {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.wp-block-mz-student-portfolio .flip-card .position {
+  margin: 0;
+}
+.wp-block-mz-student-portfolio .flip-card .bio {
+  margin: 10px;
+  padding: 10px;
+  border-top: 2px solid rgba(0, 0, 0, 0.4666666667);
+  text-align: left;
+}
+.wp-block-mz-student-portfolio .flip-card p {
+  margin: 0 0 10px 0;
+}
+.wp-block-mz-student-portfolio .Front-End-Web-Developer-front-card {
+  border: 7px solid #1414ff;
+}
+.wp-block-mz-student-portfolio .Graphic-Design-front-card {
+  border: 7px solid #d38b00;
+}
+.wp-block-mz-student-portfolio .Graphic-Design-and-Front-End-Web-Development-front-card {
+  border-width: 7px;
+  border-style: solid;
+  -o-border-image: linear-gradient(to right, #1414ff, #d38b00) 1;
+     border-image: linear-gradient(to right, #1414ff, #d38b00) 1;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

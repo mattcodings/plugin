@@ -26,6 +26,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function cms_course_module_cms_course_module_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/cms-course-module' );
-//	register_block_type( __DIR__ . '/build' );
+	register_block_type( __DIR__ . '/build/blocks/student-portfolio' );
 }
 add_action( 'init', 'cms_course_module_cms_course_module_block_init' );
